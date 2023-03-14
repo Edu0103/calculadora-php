@@ -2,40 +2,29 @@
     $n1 = 0;
     $n2 = 0;
     $result = 0;
-    $soma = 'somar';
-    $sub = 'sub';
-    $mult = 'mult';
-    $divi = 'divi';
+    $calc = "somar";
 
-    if(isset($_POST['somar'])){
+    if(isset($_POST['calcular'])){
         $n1 = (int)$_POST['n1'];
         $n2 = (int)$_POST['n2'];
-        $calc = $_POST['somar'];
+        $calc = $_POST['calcular'];
 
         $result = $n1 + $n2;
-    }
-    else if(isset($_POST['sub'])){
-        $n1 = (int)$_POST['n1'];
-        $n2 = (int)$_POST['n2'];
-        $calc = $_POST['sub'];
 
-        $result = $n1 - $n2;
-    }
-    else if(isset($_POST['mult'])){
-        $n1 = (int)$_POST['n1'];
-        $n2 = (int)$_POST['n2'];
-        $calc = $_POST['mult'];
-
-        $result = $n1 * $n2;
-    }
-    else if(isset($_POST['divi'])){
-            $n1 = (int)$_POST['n1'];
-            $n2 = (int)$_POST['n2'];
-            $calc = $_POST['divi'];
+        if($calc == '-'){
+            $result = $n1 - $n2;
+        }
+        else if($calc == '*'){
     
-            $result = $n1 / $n2;
+            $result = $n1 * $n2;
+        }
+        else if($calc == '/'){
         
+                $result = $n1 / $n2;
+            
+        }
     }
+    
 ?>
 
 
@@ -52,13 +41,13 @@
         <input type="number" name="n1" value= <?= $n1 ?> required > <br>
         Segundo numero  <br>
         <input type="number" name="n2" value= <?= $n2 ?> required  > <br>
-        <input type="submit" value="+" name="somar">
-        <input type="submit" value="-" name="sub">
-        <input type="submit" value="*" name="mult">
-        <input type="submit" value="/" name="divi">
+        <input type="submit" value="+" name="calcular">
+        <input type="submit" value="-" name="calcular">
+        <input type="submit" value="*" name="calcular">
+        <input type="submit" value="/" name="calcular">
         <br><br>
         
-        <p>Resultado da operação: <?= $result ?> </p>
+        <p>Resultado da operacao: <?= $result ?> </p>
     </form>
 
 </body>
